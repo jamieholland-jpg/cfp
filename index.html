@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cumberland Family Practice | Hendersonville, TN</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ovo&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              pine: {
+                DEFAULT: "#14524d",
+                900: "#0b2e2a",
+                800: "#0e3f3a",
+                700: "#14524d",
+                600: "#1f6f66",
+              },
+              clay: {
+                DEFAULT: "#c17527",
+                600: "#c17527",
+                400: "#d98c3f",
+                200: "#eccb9c",
+              },
+              cream: {
+                DEFAULT: "#f6f2ea",
+                50: "#faf7f2",
+                100: "#efe8db",
+                200: "#e3d9c6",
+              },
+              sage: {
+                DEFAULT: "#8fa89c",
+                300: "#aebfb6",
+              },
+              ink: "#16241f",
+            },
+            fontFamily: {
+              display: ["Ovo", "serif"],
+              sans: ["Mulish", "system-ui", "sans-serif"],
+              mono: ['"DM Mono"', "ui-monospace", "monospace"],
+            },
+            letterSpacing: {
+              widest: "0.2em",
+              ultra: "0.28em",
+            },
+            borderRadius: {
+              none: "0",
+              DEFAULT: "0",
+              sm: "0",
+              md: "0",
+              lg: "0",
+              xl: "0",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      h1, h2, h3, p {
+        text-wrap: pretty;
+      }
+      body {
+        font-family: "Mulish", system-ui, sans-serif;
+        background: #f6f2ea;
+        color: #16241f;
+        font-size: 17px;
+        line-height: 1.65;
+      }
+      button, input, textarea, select { border-radius: 0; }
+      ::selection { background: #14524d; color: #faf7f2; }
+
+      .btn-primary {
+        display: inline-flex; align-items: center; gap: 0.75rem;
+        background: #14524d; color: #faf7f2;
+        padding: 0.95rem 1.9rem;
+        font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
+        font-family: "Mulish", sans-serif; font-weight: 600;
+        transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .btn-primary:hover { background: #0e3f3a; letter-spacing: 0.28em; }
+      .btn-light { background: #faf7f2; color: #16241f; }
+      .btn-light:hover { background: #e3d9c6; color: #16241f; }
+      .btn-ghost {
+        display: inline-flex; align-items: center; gap: 0.75rem;
+        border: 1.5px solid rgba(250, 247, 242, 0.22); color: #faf7f2;
+        padding: 0.95rem 1.9rem; font-size: 0.8rem; letter-spacing: 0.2em;
+        text-transform: uppercase; font-weight: 600; background: transparent;
+        transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .btn-ghost:hover { background: rgba(250, 247, 242, 0.12); letter-spacing: 0.28em; }
+      .btn-ghost-dark {
+        display: inline-flex; align-items: center; gap: 0.75rem;
+        border: 1px solid rgba(22, 36, 31, 0.35); color: #16241f;
+        padding: 0.95rem 1.9rem; font-size: 0.8rem; letter-spacing: 0.2em;
+        text-transform: uppercase; font-weight: 600; background: transparent;
+        transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .btn-ghost-dark:hover { background: #16241f; color: #faf7f2; letter-spacing: 0.28em; }
+
+      .scrim-bottom {
+        background: linear-gradient(to bottom,
+          rgba(8, 32, 29, 0.58) 0%, rgba(8, 32, 29, 0.66) 25%,
+          rgba(8, 32, 29, 0.84) 55%, rgba(8, 32, 29, 0.96) 100%);
+      }
+      .scrim-radial {
+        background: radial-gradient(ellipse at center,
+          rgba(11, 46, 42, 0.72) 0%, rgba(11, 46, 42, 0.87) 55%, rgba(11, 46, 42, 0.96) 100%);
+      }
+
+      .eyebrow {
+        font-family: "DM Mono", monospace; text-transform: uppercase;
+        font-size: 12px; letter-spacing: 0.28em;
+      }
+
+      /* Nav pill border tracks the current text color (cream on photo, ink once
+         scrolled) but at half strength so it reads as a subtle outline, not a CTA. */
+      .nav-pill {
+        border-width: 1.5px;
+        border-color: color-mix(in srgb, currentColor 25%, transparent);
+        transition: color 500ms cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 500ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .provider-scroll {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .provider-scroll::-webkit-scrollbar { display: none; }
+
+      /* Placeholder "photography": Cumberland has no property-style photo library like
+         Liviana, so full-bleed sections use tinted gradients with an oversized watermark
+         numeral/initial instead of real imagery. Swap for real photography when available. */
+      .photo-placeholder {
+        position: absolute; inset: 0; overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .photo-placeholder .mark {
+        font-family: "Playfair Display", serif; font-weight: 500;
+        color: rgba(250, 247, 242, 0.14);
+        font-size: clamp(96px, 16vw, 240px); line-height: 1; user-select: none;
+        transition: transform 1800ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .perk-link:hover .photo-placeholder .mark,
+      .card-link:hover .photo-placeholder .mark { transform: scale(1.08); }
+
+      .card-img {
+        position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+        transition: transform 1400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .card-link:hover .card-img { transform: scale(1.05); }
+
+      @keyframes drift {
+        from { transform: scale(1) translate(0, 0); }
+        to { transform: scale(1.08) translate(-1%, -1%); }
+      }
+      .animate-drift { animation: drift 22s ease-out both; }
+
+      @keyframes scroll-hint {
+        0%, 100% { transform: translateY(0); opacity: 0.6; }
+        50% { transform: translateY(5px); opacity: 1; }
+      }
+      .scroll-arrow { display: inline-block; color: #faf7f2; transition: opacity 500ms cubic-bezier(0.16,1,0.3,1); }
+      .scroll-arrow svg { display: block; animation: scroll-hint 2200ms ease-in-out infinite; }
+      .scroll-arrow:hover { opacity: 1 !important; }
+      .scroll-arrow:hover svg { animation-play-state: paused; }
+
+      @keyframes reveal-in {
+        from { opacity: 0; transform: translateY(26px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .reveal { opacity: 0; transform: translateY(26px); }
+      .reveal.is-visible {
+        animation: reveal-in 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation-delay: var(--reveal-delay, 0ms);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal, .animate-drift { opacity: 1 !important; transform: none !important; animation: none !important; }
+      }
+
+      .card-description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+      .card-link { transition: box-shadow 700ms cubic-bezier(0.16, 1, 0.3, 1); }
+      .card-link:hover { box-shadow: 0 24px 60px -30px rgba(11, 46, 42, 0.35); }
+
+      .perk-cta { letter-spacing: 0.2em; transition: letter-spacing 500ms cubic-bezier(0.16, 1, 0.3, 1); }
+      .perk-link:hover .perk-cta { letter-spacing: 0.28em; }
+
+      header.nav-shell {
+        transition: background-color 700ms cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 700ms cubic-bezier(0.16, 1, 0.3, 1),
+          backdrop-filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      header.nav-shell .nav-text {
+        transition: color 500ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .nav-scrim {
+        position: fixed; top: 0; left: 0; right: 0; height: 150px; z-index: 49; pointer-events: none;
+        background: linear-gradient(to bottom, rgba(11, 46, 42, 0.65) 0%, rgba(11, 46, 42, 0.65) 50%, rgba(11, 46, 42, 0) 100%);
+        transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .nav-scrim.is-hidden { opacity: 0; }
+    </style>
+  </head>
+
+  <body>
+    <div id="nav-scrim" class="nav-scrim"></div>
+
+    <!-- ================= NAV ================= -->
+    <header id="nav" class="nav-shell fixed top-0 inset-x-0 z-50 bg-transparent">
+      <nav class="mx-auto max-w-[1600px] flex items-center justify-between px-6 lg:px-12 h-16 md:h-20">
+        <a href="#top" class="nav-text block leading-none text-cream-50" data-light="text-cream-50" data-dark="text-ink" aria-label="Cumberland Family Practice home">
+          <span class="font-display text-xl md:text-2xl tracking-tight">Cumberland Family Practice</span>
+        </a>
+
+        <ul class="hidden lg:flex items-center gap-9 ml-auto">
+          <li><a href="#" class="nav-text text-sm uppercase font-semibold tracking-widest text-cream-50 hover:opacity-70" data-light="text-cream-50" data-dark="text-ink">About</a></li>
+          <li><a href="#" class="nav-text text-sm uppercase font-semibold tracking-widest text-cream-50 hover:opacity-70" data-light="text-cream-50" data-dark="text-ink">FAQ</a></li>
+          <li><a href="#contact" class="nav-text text-sm uppercase font-semibold tracking-widest text-cream-50 hover:opacity-70" data-light="text-cream-50" data-dark="text-ink">Contact</a></li>
+          <li class="relative group">
+            <a href="#" class="nav-text nav-pill text-sm uppercase font-semibold tracking-widest text-cream-50 hover:opacity-70 inline-flex items-center gap-2 border px-5 py-2.5" data-light="text-cream-50" data-dark="text-ink">
+              For Patients
+              <svg width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true" class="mt-px">
+                <path d="M1 1L5.5 5.5L10 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <ul class="absolute right-0 top-full mt-4 w-64 bg-cream-50 text-ink border border-cream-200 shadow-xl opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 py-2">
+              <li><a href="#" class="block px-5 py-3 text-sm uppercase font-semibold tracking-widest hover:bg-cream-100">Patient Portal</a></li>
+              <li><a href="#" class="block px-5 py-3 text-sm uppercase font-semibold tracking-widest hover:bg-cream-100">Telehealth</a></li>
+              <li><a href="#" class="block px-5 py-3 text-sm uppercase font-semibold tracking-widest hover:bg-cream-100">New Patient Forms</a></li>
+              <li><a href="#" class="block px-5 py-3 text-sm uppercase font-semibold tracking-widest hover:bg-cream-100">Insurance Acceptance</a></li>
+              <li><a href="#" class="block px-5 py-3 text-sm uppercase font-semibold tracking-widest hover:bg-cream-100">HIPAA Notice</a></li>
+              <li><a href="#" class="block px-5 py-3 text-sm uppercase font-semibold tracking-widest hover:bg-cream-100">Trusted Links</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ================= HERO ================= -->
+      <section id="top" class="relative h-screen min-h-[720px] w-full overflow-hidden bg-pine-900 text-cream-50">
+        <div class="absolute inset-0 animate-drift">
+          <img src="hero.jpg" alt="Cumberland Family Practice | Hendersonville, TN" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute inset-0 scrim-bottom"></div>
+
+        <div class="relative h-full mx-auto max-w-[1600px] px-6 lg:px-12 pt-32 pb-12 flex flex-col justify-end">
+          <div class="max-w-4xl">
+            <h1 class="reveal font-display font-normal leading-[0.98] tracking-tight" style="font-size: clamp(2.25rem, 4.25vw, 4rem); --reveal-delay: 0ms">
+              Comprehensive family care,<br />
+              <span class="text-clay-200">rooted in Hendersonville<br />for over 45 years.</span>
+            </h1>
+            <p class="reveal mt-8 max-w-xl text-base lg:text-lg leading-relaxed text-cream-50/85" style="--reveal-delay: 250ms">
+              At Cumberland Family Practice, we provide personalized primary care built on lasting relationships, evidence-based medicine, and a commitment to helping patients stay healthy through every stage of life.
+            </p>
+            <div class="reveal mt-12 flex flex-wrap gap-4" style="--reveal-delay: 400ms">
+              <a href="#new-patient" class="btn-primary btn-light">Become a Patient <span aria-hidden>→</span></a>
+              <a href="tel:6158244244" class="btn-ghost">Call (615) 824-4244</a>
+            </div>
+          </div>
+
+          <div class="mt-16 flex justify-center">
+            <a href="#providers" class="scroll-arrow" aria-label="Scroll to explore">
+              <svg width="14" height="22" viewBox="0 0 14 22" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 2 L7 17" /><path d="M2 12 L7 17 L12 12" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PROVIDERS ================= -->
+      <section id="providers" class="bg-cream text-ink">
+        <div class="mx-auto max-w-[1600px] px-6 lg:px-12 py-24 lg:py-32">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+            <div>
+              <span class="reveal eyebrow text-ink/70">Meet the Staff</span>
+              <h2 class="reveal mt-2 font-display font-normal leading-[1] tracking-tight whitespace-nowrap" style="font-size: clamp(1.5rem, 3vw, 3.375rem); --reveal-delay: 100ms">
+                A team dedicated to knowing you well.
+              </h2>
+            </div>
+            <div class="reveal flex items-center gap-3 self-start lg:self-auto" style="--reveal-delay: 200ms">
+              <button type="button" id="providers-prev" aria-label="Scroll to previous providers" class="w-12 h-12 flex items-center justify-center border border-ink/25 text-ink hover:bg-ink hover:text-cream-50 hover:border-ink transition-colors duration-300">
+                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+                  <path d="M7 1L1 7L7 13M1 7H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button type="button" id="providers-next" aria-label="Scroll to next providers" class="w-12 h-12 flex items-center justify-center border border-ink/25 text-ink hover:bg-ink hover:text-cream-50 hover:border-ink transition-colors duration-300">
+                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+                  <path d="M11 1L17 7L11 13M17 7H1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="provider-scroll flex gap-8 lg:gap-10 overflow-x-auto snap-x snap-proximity pt-6 pb-24 -mx-6 lg:-mx-12 px-6 lg:px-12 -mt-6">
+            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal">
+              <div class="relative aspect-square overflow-hidden" style="background:#0e3f3a;">
+                <img src="providers/01-couret.jpg" alt="Raul Couret, Jr., MD" class="card-img" />
+              </div>
+              <div class="p-6 lg:p-7 flex flex-col gap-4">
+                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Raul Couret, Jr., MD</h3>
+                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                  <span>Family Medicine</span><span class="opacity-50">·</span><span>Geriatrics</span>
+                </div>
+                <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
+                  Fellowship-trained in geriatrics at Rush University Medical Center, with added certification in hospice and palliative medicine.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 60ms">
+              <div class="relative aspect-square overflow-hidden" style="background:#14524d;">
+                <img src="providers/02-faulks.jpg" alt="Steven Faulks, MD" class="card-img" />
+              </div>
+              <div class="p-6 lg:p-7 flex flex-col gap-4">
+                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Steven Faulks, MD</h3>
+                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                  <span>Family Medicine</span>
+                </div>
+                <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
+                  Trained at the University of Florida in community health and family medicine, board certified by the American Board of Family Medicine.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 120ms">
+              <div class="relative aspect-square overflow-hidden" style="background:#1f6f66;">
+                <img src="providers/03-medam.jpg" alt="Guru Medam, MD" class="card-img" />
+              </div>
+              <div class="p-6 lg:p-7 flex flex-col gap-4">
+                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Guru Medam, MD</h3>
+                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                  <span>Family Medicine</span>
+                </div>
+                <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
+                  Trained in family medicine at the University of Alabama at Birmingham, board certified by the American Board of Family Medicine.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 180ms">
+              <div class="relative aspect-square overflow-hidden" style="background:#0e3f3a;">
+                <img src="providers/04-montgomery.jpg" alt="David Montgomery, MD" class="card-img" />
+              </div>
+              <div class="p-6 lg:p-7 flex flex-col gap-4">
+                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">David Montgomery, MD</h3>
+                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                  <span>Family Medicine</span>
+                </div>
+                <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
+                  Residency in family medicine at the University of South Carolina, Columbia, board certified by the American Board of Family Medicine.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 240ms">
+              <div class="relative aspect-square overflow-hidden" style="background:#14524d;">
+                <img src="providers/05-galyon.jpg" alt="Jennifer Galyon, FNP-C" class="card-img" />
+              </div>
+              <div class="p-6 lg:p-7 flex flex-col gap-4">
+                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Jennifer Galyon, FNP-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                  <span>Nurse Practitioner</span>
+                </div>
+                <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
+                  Master of Science in Nursing from Middle Tennessee State University, certified Family Nurse Practitioner.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 300ms">
+              <div class="relative aspect-square overflow-hidden" style="background:#1f6f66;">
+                <img src="providers/06-gann.jpg" alt="Mallory Gann, PA-C" class="card-img" />
+              </div>
+              <div class="p-6 lg:p-7 flex flex-col gap-4">
+                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Mallory Gann, PA-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                  <span>Physician Assistant</span>
+                </div>
+                <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
+                  Physician Assistant training through Trevecca Nazarene University, with a background in biology from Harding University.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 360ms">
+              <div class="relative aspect-square overflow-hidden" style="background:#0e3f3a;">
+                <img src="providers/07-greer.jpg" alt="Molly Greer, PA-C" class="card-img" />
+              </div>
+              <div class="p-6 lg:p-7 flex flex-col gap-4">
+                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Molly Greer, PA-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                  <span>Physician Assistant</span>
+                </div>
+                <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
+                  Physician Assistant training through Trevecca Nazarene University, with a background in human nutrition from the University of Kentucky.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 420ms">
+              <div class="relative aspect-square overflow-hidden" style="background:#14524d;">
+                <img src="providers/08-lee.jpg" alt="Laurel Lee, PA-C" class="card-img" />
+              </div>
+              <div class="p-6 lg:p-7 flex flex-col gap-4">
+                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Laurel Lee, PA-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                  <span>Physician Assistant</span>
+                </div>
+                <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
+                  Physician Assistant training through South College Asheville, with a background in biology from Maryville College.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 480ms">
+              <div class="relative aspect-square overflow-hidden" style="background:#1f6f66;">
+                <img src="providers/09-safdari.jpeg" alt="Omeed Safdari, PA-C" class="card-img" />
+              </div>
+              <div class="p-6 lg:p-7 flex flex-col gap-4">
+                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Omeed Safdari, PA-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                  <span>Physician Assistant</span>
+                </div>
+                <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
+                  Physician Assistant training through Lipscomb University, certified and ready to support your ongoing care.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FINAL CTA ================= -->
+      <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-pine-900 text-cream-50">
+        <div class="absolute inset-0 animate-drift">
+          <img src="team.jpg" alt="The Cumberland Family Practice team" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute inset-0 scrim-radial"></div>
+        <div class="relative text-center px-6 max-w-4xl">
+          <span class="reveal eyebrow text-cream-50">Begin Your Care</span>
+          <h2 class="reveal mt-2 font-display font-normal leading-[0.98] tracking-tight" style="font-size: clamp(2.25rem, 4.25vw, 4rem); --reveal-delay: 150ms">
+            Family medicine<br /><span class="text-clay-200">at every stage of life.</span>
+          </h2>
+          <div class="reveal mt-14 flex flex-wrap gap-4 justify-center" style="--reveal-delay: 350ms">
+            <a href="#new-patient" class="btn-primary btn-light">Become a Patient <span aria-hidden>→</span></a>
+            <a href="tel:6158244244" class="btn-ghost">Call (615) 824-4244</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="contact" class="bg-pine-900 text-cream-50">
+      <div class="mx-auto max-w-[1600px] px-6 lg:px-12 py-24 grid grid-cols-1 md:grid-cols-12 gap-16">
+        <div class="md:col-span-5">
+          <span class="font-display text-2xl tracking-tight">Cumberland Family Practice</span>
+          <p class="mt-5 text-base leading-snug font-semibold text-cream-50/80">
+            264 New Shackle Island Rd.<br />Suite 107, Hendersonville, TN 37075
+          </p>
+          <a href="tel:6158244244" class="mt-4 block font-display text-2xl tracking-wide hover:text-clay-200 transition-colors">615-824-4244</a>
+          <p class="mt-2 text-base font-semibold text-cream-50/70">Fax: 615-824-5916</p>
+        </div>
+
+        <div class="md:col-span-2">
+          <span class="eyebrow text-cream-50/70">Practice</span>
+          <ul class="mt-5 space-y-3 text-sm uppercase font-semibold tracking-widest text-cream-50/80">
+            <li><a href="#top" class="hover:text-cream-50">Home</a></li>
+            <li><a href="#" class="hover:text-cream-50">About</a></li>
+            <li><a href="#" class="hover:text-cream-50">FAQ</a></li>
+            <li><a href="#contact" class="hover:text-cream-50">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <span class="eyebrow text-cream-50/70">For Patients</span>
+          <ul class="mt-5 space-y-3 text-sm uppercase font-semibold tracking-widest text-cream-50/80">
+            <li><a href="#" class="hover:text-cream-50">Patient Portal</a></li>
+            <li><a href="#" class="hover:text-cream-50">Telehealth</a></li>
+            <li><a href="#new-patient" class="hover:text-cream-50">New Patient Forms</a></li>
+            <li><a href="#" class="hover:text-cream-50">Insurance Acceptance</a></li>
+            <li><a href="#" class="hover:text-cream-50">HIPAA Notice</a></li>
+            <li><a href="#" class="hover:text-cream-50">Trusted Links</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <span class="eyebrow text-cream-50/70">Office Hours</span>
+          <p class="mt-5 text-base leading-snug font-semibold text-cream-50/80">
+            Monday – Friday<br />8:30am – 12:30pm<br />1:30pm – 5:00pm
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      const nav = document.getElementById("nav");
+      const navScrim = document.getElementById("nav-scrim");
+      const navTexts = document.querySelectorAll(".nav-text");
+
+      function applyNavState() {
+        const scrolled = window.scrollY > 24;
+        if (scrolled) {
+          nav.classList.remove("bg-transparent");
+          nav.classList.add("bg-cream", "border-b", "border-cream-200");
+          navScrim.classList.add("is-hidden");
+          navTexts.forEach((el) => { el.classList.remove("text-cream-50"); el.classList.add("text-ink"); });
+        } else {
+          nav.classList.add("bg-transparent");
+          nav.classList.remove("bg-cream", "border-b", "border-cream-200");
+          navScrim.classList.remove("is-hidden");
+          navTexts.forEach((el) => { el.classList.add("text-cream-50"); el.classList.remove("text-ink"); });
+        }
+      }
+      applyNavState();
+      window.addEventListener("scroll", applyNavState, { passive: true });
+
+      const providerScroll = document.querySelector(".provider-scroll");
+      const providerPrev = document.getElementById("providers-prev");
+      const providerNext = document.getElementById("providers-next");
+      if (providerScroll && providerPrev && providerNext) {
+        const scrollByCard = (dir) => {
+          providerScroll.scrollBy({ left: dir * providerScroll.clientWidth * 0.85, behavior: "smooth" });
+        };
+        providerPrev.addEventListener("click", () => scrollByCard(-1));
+        providerNext.addEventListener("click", () => scrollByCard(1));
+      }
+    </script>
+  </body>
+</html>
