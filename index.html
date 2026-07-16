@@ -192,7 +192,8 @@
         .reveal, .animate-drift { opacity: 1 !important; transform: none !important; animation: none !important; }
       }
 
-      .card-description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+      .card-description { min-height: 4.875rem; }
+      @media (min-width: 1024px) { .card-description { min-height: 5.5rem; } }
       .card-link { transition: box-shadow 700ms cubic-bezier(0.16, 1, 0.3, 1); }
       .card-link:hover { box-shadow: 0 24px 60px -30px rgba(11, 46, 42, 0.35); }
 
@@ -330,14 +331,14 @@
             </div>
           </div>
 
-          <div class="provider-scroll flex gap-8 lg:gap-10 overflow-x-auto snap-x snap-proximity pt-6 pb-24 -mx-6 lg:-mx-12 px-6 lg:px-12 -mt-6">
+          <div class="provider-scroll flex gap-8 lg:gap-10 overflow-x-auto snap-x snap-proximity pt-2 pb-10 lg:pt-6 lg:pb-24 -mt-2 lg:-mt-6">
             <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal">
               <div class="relative aspect-square overflow-hidden" style="background:#0e3f3a;">
                 <img src="providers/01-couret.jpg" alt="Raul Couret, Jr., MD" class="card-img" />
               </div>
               <div class="p-6 lg:p-7 flex flex-col gap-4">
-                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Raul Couret, Jr., MD</h3>
-                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                <h3 class="font-display font-normal text-xl lg:text-3xl leading-[1.1] tracking-tight text-pine-700">Raul Couret, Jr., MD</h3>
+                <div class="font-mono text-xs uppercase tracking-widest leading-[13px] text-ink/65 flex items-center gap-2 flex-wrap">
                   <span>Family Medicine</span><span class="opacity-50">·</span><span>Geriatrics</span>
                 </div>
                 <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
@@ -351,8 +352,8 @@
                 <img src="providers/02-faulks.jpg" alt="Steven Faulks, MD" class="card-img" />
               </div>
               <div class="p-6 lg:p-7 flex flex-col gap-4">
-                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Steven Faulks, MD</h3>
-                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                <h3 class="font-display font-normal text-xl lg:text-3xl leading-[1.1] tracking-tight text-pine-700">Steven Faulks, MD</h3>
+                <div class="font-mono text-xs uppercase tracking-widest leading-[13px] text-ink/65 flex items-center gap-2 flex-wrap">
                   <span>Family Medicine</span>
                 </div>
                 <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
@@ -366,8 +367,8 @@
                 <img src="providers/03-medam.jpg" alt="Guru Medam, MD" class="card-img" />
               </div>
               <div class="p-6 lg:p-7 flex flex-col gap-4">
-                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Guru Medam, MD</h3>
-                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                <h3 class="font-display font-normal text-xl lg:text-3xl leading-[1.1] tracking-tight text-pine-700">Guru Medam, MD</h3>
+                <div class="font-mono text-xs uppercase tracking-widest leading-[13px] text-ink/65 flex items-center gap-2 flex-wrap">
                   <span>Family Medicine</span>
                 </div>
                 <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
@@ -381,8 +382,8 @@
                 <img src="providers/04-montgomery.jpg" alt="David Montgomery, MD" class="card-img" />
               </div>
               <div class="p-6 lg:p-7 flex flex-col gap-4">
-                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">David Montgomery, MD</h3>
-                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                <h3 class="font-display font-normal text-xl lg:text-3xl leading-[1.1] tracking-tight text-pine-700">David Montgomery, MD</h3>
+                <div class="font-mono text-xs uppercase tracking-widest leading-[13px] text-ink/65 flex items-center gap-2 flex-wrap">
                   <span>Family Medicine</span>
                 </div>
                 <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
@@ -396,8 +397,8 @@
                 <img src="providers/05-galyon.jpg" alt="Jennifer Galyon, FNP-C" class="card-img" />
               </div>
               <div class="p-6 lg:p-7 flex flex-col gap-4">
-                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Jennifer Galyon, FNP-C</h3>
-                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                <h3 class="font-display font-normal text-xl lg:text-3xl leading-[1.1] tracking-tight text-pine-700">Jennifer Galyon, FNP-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest leading-[13px] text-ink/65 flex items-center gap-2 flex-wrap">
                   <span>Nurse Practitioner</span>
                 </div>
                 <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
@@ -411,8 +412,8 @@
                 <img src="providers/06-gann.jpg" alt="Mallory Gann, PA-C" class="card-img" />
               </div>
               <div class="p-6 lg:p-7 flex flex-col gap-4">
-                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Mallory Gann, PA-C</h3>
-                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                <h3 class="font-display font-normal text-xl lg:text-3xl leading-[1.1] tracking-tight text-pine-700">Mallory Gann, PA-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest leading-[13px] text-ink/65 flex items-center gap-2 flex-wrap">
                   <span>Physician Assistant</span>
                 </div>
                 <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
@@ -426,8 +427,8 @@
                 <img src="providers/07-greer.jpg" alt="Molly Greer, PA-C" class="card-img" />
               </div>
               <div class="p-6 lg:p-7 flex flex-col gap-4">
-                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Molly Greer, PA-C</h3>
-                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                <h3 class="font-display font-normal text-xl lg:text-3xl leading-[1.1] tracking-tight text-pine-700">Molly Greer, PA-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest leading-[13px] text-ink/65 flex items-center gap-2 flex-wrap">
                   <span>Physician Assistant</span>
                 </div>
                 <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
@@ -441,8 +442,8 @@
                 <img src="providers/08-lee.jpg" alt="Laurel Lee, PA-C" class="card-img" />
               </div>
               <div class="p-6 lg:p-7 flex flex-col gap-4">
-                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Laurel Lee, PA-C</h3>
-                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                <h3 class="font-display font-normal text-xl lg:text-3xl leading-[1.1] tracking-tight text-pine-700">Laurel Lee, PA-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest leading-[13px] text-ink/65 flex items-center gap-2 flex-wrap">
                   <span>Physician Assistant</span>
                 </div>
                 <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
@@ -456,8 +457,8 @@
                 <img src="providers/09-safdari.jpeg" alt="Omeed Safdari, PA-C" class="card-img" />
               </div>
               <div class="p-6 lg:p-7 flex flex-col gap-4">
-                <h3 class="font-display font-normal text-3xl leading-[1.1] tracking-tight text-pine-700">Omeed Safdari, PA-C</h3>
-                <div class="font-mono text-xs uppercase tracking-widest text-ink/65 flex items-center gap-2 flex-wrap">
+                <h3 class="font-display font-normal text-xl lg:text-3xl leading-[1.1] tracking-tight text-pine-700">Omeed Safdari, PA-C</h3>
+                <div class="font-mono text-xs uppercase tracking-widest leading-[13px] text-ink/65 flex items-center gap-2 flex-wrap">
                   <span>Physician Assistant</span>
                 </div>
                 <p class="card-description text-base lg:text-lg leading-relaxed text-ink/75">
