@@ -247,7 +247,30 @@
             </ul>
           </li>
         </ul>
+
+        <button type="button" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" class="nav-text lg:hidden ml-auto p-2 text-cream-50" data-light="text-cream-50" data-dark="text-ink">
+          <svg width="26" height="18" viewBox="0 0 26 18" fill="none" aria-hidden="true">
+            <path d="M0 1H26M0 9H26M0 17H26" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
       </nav>
+
+      <div id="mobile-menu" class="hidden lg:hidden bg-cream-50 text-ink border-t border-cream-200 max-h-[calc(100vh-64px)] overflow-y-auto">
+        <ul class="px-6 py-4">
+          <li><a href="#" class="block py-3 text-sm uppercase font-semibold tracking-widest border-b border-ink/10">About</a></li>
+          <li><a href="#" class="block py-3 text-sm uppercase font-semibold tracking-widest border-b border-ink/10">FAQ</a></li>
+          <li><a href="#contact" class="block py-3 text-sm uppercase font-semibold tracking-widest border-b border-ink/10">Contact</a></li>
+          <li class="pt-4">
+            <span class="eyebrow text-ink/50">For Patients</span>
+          </li>
+          <li><a href="#" class="block py-3 text-sm uppercase font-semibold tracking-widest border-b border-ink/10">Patient Portal</a></li>
+          <li><a href="#" class="block py-3 text-sm uppercase font-semibold tracking-widest border-b border-ink/10">Telehealth</a></li>
+          <li><a href="#" class="block py-3 text-sm uppercase font-semibold tracking-widest border-b border-ink/10">New Patient Forms</a></li>
+          <li><a href="#" class="block py-3 text-sm uppercase font-semibold tracking-widest border-b border-ink/10">Insurance Acceptance</a></li>
+          <li><a href="#" class="block py-3 text-sm uppercase font-semibold tracking-widest border-b border-ink/10">HIPAA Notice</a></li>
+          <li><a href="#" class="block py-3 text-sm uppercase font-semibold tracking-widest">Trusted Links</a></li>
+        </ul>
+      </div>
     </header>
 
     <main>
@@ -285,15 +308,15 @@
 
       <!-- ================= PROVIDERS ================= -->
       <section id="providers" class="bg-cream text-ink">
-        <div class="mx-auto max-w-[1600px] px-6 lg:px-12 py-24 lg:py-32">
-          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+        <div class="mx-auto max-w-[1600px] px-6 lg:px-12 py-12 lg:py-32">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-8 lg:mb-16">
             <div>
               <span class="reveal eyebrow text-ink/70">Meet the Staff</span>
               <h2 class="reveal mt-2 font-display font-normal leading-[1] tracking-tight whitespace-nowrap" style="font-size: clamp(1.5rem, 3vw, 3.375rem); --reveal-delay: 100ms">
                 A team dedicated to knowing you well.
               </h2>
             </div>
-            <div class="reveal flex items-center gap-3 self-start lg:self-auto" style="--reveal-delay: 200ms">
+            <div class="reveal hidden lg:flex items-center gap-3 self-start lg:self-auto" style="--reveal-delay: 200ms">
               <button type="button" id="providers-prev" aria-label="Scroll to previous providers" class="w-12 h-12 flex items-center justify-center border border-ink/25 text-ink hover:bg-ink hover:text-cream-50 hover:border-ink transition-colors duration-300">
                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
                   <path d="M7 1L1 7L7 13M1 7H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
@@ -308,7 +331,7 @@
           </div>
 
           <div class="provider-scroll flex gap-8 lg:gap-10 overflow-x-auto snap-x snap-proximity pt-6 pb-24 -mx-6 lg:-mx-12 px-6 lg:px-12 -mt-6">
-            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal">
+            <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal">
               <div class="relative aspect-square overflow-hidden" style="background:#0e3f3a;">
                 <img src="providers/01-couret.jpg" alt="Raul Couret, Jr., MD" class="card-img" />
               </div>
@@ -323,7 +346,7 @@
               </div>
             </div>
 
-            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 60ms">
+            <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 60ms">
               <div class="relative aspect-square overflow-hidden" style="background:#14524d;">
                 <img src="providers/02-faulks.jpg" alt="Steven Faulks, MD" class="card-img" />
               </div>
@@ -338,7 +361,7 @@
               </div>
             </div>
 
-            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 120ms">
+            <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 120ms">
               <div class="relative aspect-square overflow-hidden" style="background:#1f6f66;">
                 <img src="providers/03-medam.jpg" alt="Guru Medam, MD" class="card-img" />
               </div>
@@ -353,7 +376,7 @@
               </div>
             </div>
 
-            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 180ms">
+            <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 180ms">
               <div class="relative aspect-square overflow-hidden" style="background:#0e3f3a;">
                 <img src="providers/04-montgomery.jpg" alt="David Montgomery, MD" class="card-img" />
               </div>
@@ -368,7 +391,7 @@
               </div>
             </div>
 
-            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 240ms">
+            <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 240ms">
               <div class="relative aspect-square overflow-hidden" style="background:#14524d;">
                 <img src="providers/05-galyon.jpg" alt="Jennifer Galyon, FNP-C" class="card-img" />
               </div>
@@ -383,7 +406,7 @@
               </div>
             </div>
 
-            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 300ms">
+            <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 300ms">
               <div class="relative aspect-square overflow-hidden" style="background:#1f6f66;">
                 <img src="providers/06-gann.jpg" alt="Mallory Gann, PA-C" class="card-img" />
               </div>
@@ -398,7 +421,7 @@
               </div>
             </div>
 
-            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 360ms">
+            <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 360ms">
               <div class="relative aspect-square overflow-hidden" style="background:#0e3f3a;">
                 <img src="providers/07-greer.jpg" alt="Molly Greer, PA-C" class="card-img" />
               </div>
@@ -413,7 +436,7 @@
               </div>
             </div>
 
-            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 420ms">
+            <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 420ms">
               <div class="relative aspect-square overflow-hidden" style="background:#14524d;">
                 <img src="providers/08-lee.jpg" alt="Laurel Lee, PA-C" class="card-img" />
               </div>
@@ -428,7 +451,7 @@
               </div>
             </div>
 
-            <div class="card-link group flex-none w-[380px] sm:w-[420px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 480ms">
+            <div class="card-link group flex-none w-[240px] sm:w-[340px] lg:w-[460px] snap-start block bg-cream-50 text-ink reveal" style="--reveal-delay: 480ms">
               <div class="relative aspect-square overflow-hidden" style="background:#1f6f66;">
                 <img src="providers/09-safdari.jpeg" alt="Omeed Safdari, PA-C" class="card-img" />
               </div>
@@ -467,7 +490,7 @@
 
     <!-- ================= FOOTER ================= -->
     <footer id="contact" class="bg-pine-900 text-cream-50">
-      <div class="mx-auto max-w-[1600px] px-6 lg:px-12 py-24 grid grid-cols-1 md:grid-cols-12 gap-16">
+      <div class="mx-auto max-w-[1600px] px-6 lg:px-12 py-12 lg:py-24 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16">
         <div class="md:col-span-5">
           <span class="font-display text-2xl tracking-tight">Cumberland Family Practice</span>
           <p class="mt-5 text-base leading-snug font-semibold text-cream-50/80">
@@ -542,6 +565,27 @@
       }
       applyNavState();
       window.addEventListener("scroll", applyNavState, { passive: true });
+
+      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuToggle.addEventListener("click", () => {
+        const isOpen = !mobileMenu.classList.contains("hidden");
+        mobileMenu.classList.toggle("hidden");
+        mobileMenuToggle.setAttribute("aria-expanded", String(!isOpen));
+        if (!isOpen) {
+          nav.classList.remove("bg-transparent");
+          nav.classList.add("bg-cream", "border-b", "border-cream-200");
+          navTexts.forEach((el) => { el.classList.remove("text-cream-50"); el.classList.add("text-ink"); });
+        } else if (window.scrollY <= 24) {
+          applyNavState();
+        }
+      });
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          mobileMenuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
 
       const providerScroll = document.querySelector(".provider-scroll");
       const providerPrev = document.getElementById("providers-prev");
